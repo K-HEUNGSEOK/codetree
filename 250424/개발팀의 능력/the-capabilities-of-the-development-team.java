@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
     static int size = 5;
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("src/input.txt"));
+   
         Scanner sc = new Scanner(System.in);
         int[] arr = new int[size];
         for(int i = 0 ; i < size; i ++){
