@@ -7,11 +7,11 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-     
+   
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int [] x = new int[n];
-        int [] y = new int[n];
+        int [] x = new int[1001];
+        int [] y = new int[1001];
 
         for(int i = 0 ; i < n ; i ++){
             x[i] = sc.nextInt();
@@ -20,7 +20,7 @@ public class Main {
         int ans = 0;
 
         for(int i = 0 ; i < n ; i ++){
-            boolean [] box = new boolean[101];
+            boolean [] box = new boolean[1001];
             for(int j = 0; j  < n ; j ++){
                 if (i == j) continue;
 
@@ -30,7 +30,7 @@ public class Main {
                 }
             }
             int cnt = 0;
-            for(int j = 0; j < 101; j ++){
+            for(int j = 0; j < 1001; j ++){
                 if (box[j]){
                     cnt ++;
                 }
