@@ -25,15 +25,18 @@ public class Main {
                     int x2 = x[j], y2 = y[j];
                     int x3 = x[k], y3 = y[k];
 
-                    if ((x1 + x2 + x3) > 0){
-                        int maxX = Math.max(x1,x2);
-                        maxX = Math.max(maxX,x3);
-                        int maxY = Math.max(y1,y2);
-                        maxY = Math.max(maxY,y3);
+                   if ((x1 == x2 || x1 == x3 || x2 == x3) &&
+                           (y1 == y2 || y1 == y3 || y3 == y2) ){
+                       int width = Math.abs(x1 - x2);
+                       width = Math.max(width, Math.abs(x1 - x3));
+                       width = Math.max(width, Math.abs(x2- x3));
 
-                        int total = maxX * maxY;
-                        ans = Math.max(ans,total);
-                    }
+                       int height = Math.abs(y1 - y2);
+                       height = Math.max(height, Math.abs(y1 - y3));
+                       height = Math.max(height, Math.abs(y2- y3));
+
+                       ans = Math.max(ans, height*width);
+                   }
                 }
             }
         }
