@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-  
+       
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); //폭탄 수
         int k = sc.nextInt(); //폭탄이 터지는 거리
@@ -15,6 +15,11 @@ public class Main {
             boom[i] = sc.nextInt();
         }
         int ans = 0;
+        int max = 0;
+        for (int i : boom) {
+            max = Math.max(max,i);
+        }
+        if (k >= n){
         for(int i = 0 ; i < n ; i ++){
             int [] counting = new int[101];
             boolean flag = false;
@@ -32,5 +37,8 @@ public class Main {
             }
         }
         System.out.println(ans);
+    }else {
+            System.out.println(max);
+        }
     }
 }
