@@ -4,33 +4,33 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-     
+       
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[][] seg = new int[n][2];
-        // 1) 입력받아서 [작은값, 큰값] 형태로 저장
-        for(int i = 0; i < n; i++){
-            int x1 = sc.nextInt();
-            int x2 = sc.nextInt();
-            seg[i][0] = Math.min(x1, x2);
-            seg[i][1] = Math.max(x1, x2);
+        int [] x1 = new int[101];
+        int [] x2 = new int[101];
+
+        for(int i = 0 ; i < n ; i ++){
+            x1[i] = sc.nextInt();
+            x2[i] = sc.nextInt();
         }
 
         int count = 0;
-        // 2) i번째 선분이 다른 어떤 선분과도 겹치지 않으면 count++
-        for(int i = 0; i < n; i++){
-            boolean isolated = true;
-            for(int j = 0; j < n; j++){
-                if(i == j) continue;
-                // 두 구간이 겹치면 isolated = false
-                if(Math.max(seg[i][0], seg[j][0]) <= Math.min(seg[i][1], seg[j][1])) {
-                    isolated = false;
+
+        for(int i = 0 ; i < n ; i ++){
+            boolean checked = false;
+            for(int j = 0 ; j < n ; j ++){
+                if (i == j) continue;
+
+                if (x1[i] <= x1[j] && x2[i] >= x2[j] || (x1[i] >= x1[j] && x2[i] <= x2[j])){
+                    checked = true;
                     break;
                 }
             }
-            if(isolated) count++;
+            if (!checked){
+                count++;
+            }
         }
-
         System.out.println(count);
     }
 }
