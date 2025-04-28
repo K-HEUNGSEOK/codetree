@@ -17,19 +17,33 @@ public class Main {
                 humans[i][j] = new Human(j+1, sc.nextInt());
             }
         }
-        int ans = 0;
-        for(int i = 0 ; i < k ; i ++){
-            int check = humans[i][0].index;
-            int count =1;
-            for(int j = 1; j < n ; j ++){
-                if (check > humans[i][j].index){
-                    break;
-                }
-                count ++;
+        int[][] rank = new int[11][21];
+
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < n; j++) {
+                int personNum = humans[i][j].num;
+                rank[i][personNum] = j;
             }
-            ans = Math.max(ans,count);
+        }
+
+        int ans = 0;
+        for(int a = 1; a <= n ; a ++){
+            for(int b = 1; b<=n ; b++){
+                if (a == b) continue;
+                boolean flag = true;
+                for(int round = 0; round < k ; round ++){
+                    if (rank[round][a] >= rank[round][b]){
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag){
+                    ans++;
+                }
+            }
         }
         System.out.println(ans);
+
     }
     static class Human{
         int index;
