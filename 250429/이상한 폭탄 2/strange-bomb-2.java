@@ -10,35 +10,28 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); //폭탄 수
         int k = sc.nextInt(); //폭탄이 터지는 거리
-        int[] boom = new int [101];
+        int[] boom = new int[101];
+
         for(int i = 0 ; i < n ; i ++){
-            boom[i] = sc.nextInt();
+            boom[i] =sc.nextInt();
         }
-        int ans = 0;
-        int max = 0;
-        for (int i : boom) {
-            max = Math.max(max,i);
-        }
-        if (k >= n){
+        int ans = -1;
         for(int i = 0 ; i < n ; i ++){
-            int [] counting = new int[101];
-            boolean flag = false;
-            for(int j = i + 1 ;  j <= k + i ; j ++){
-                counting[j] = boom[j];
-                if (boom[i] == boom[j]){
-                    flag = true;
+            boolean[] check = new boolean[101];
+            for(int j = i + 1; j <= k + i ; j ++){
+                if (j > 100){
                     break;
                 }
+                if (boom[i] == boom[j]){
+                    check[boom[j]] = true;
+                }
             }
-            if (flag){
-                for (int i1 : counting) {
-                    ans = Math.max(ans,i1);
+            for(int j = 1; j <= 100; j ++){
+                if (check[j]){
+                    ans = Math.max(ans,j);
                 }
             }
         }
         System.out.println(ans);
-    }else {
-            System.out.println(max);
-        }
     }
 }
