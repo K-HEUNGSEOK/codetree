@@ -20,20 +20,20 @@ public class Main {
         }
 
         for(int i = 0 ; i < n ; i ++){
-            int[] temp = new int[1001];
+            int[] temp = new int[n];
             for(int k = 0; k < n ; k ++){
                 temp[k] = p[k] + s[k];
             }
             temp[i] = p[i] / 2 + s[i];
-            Arrays.sort(temp,0,n);
+            Arrays.sort(temp);
             int count = 0;
-            int price = temp[i];
+            int price = 0;
             for(int j = 0 ; j < n ; j ++){
-                if (price > b){
+                if (price + temp[j] > b){
                     break;
                 }
-                count ++;
                 price += temp[j];
+                    count ++;
             }
             ans = Math.max(ans,count);
         }
