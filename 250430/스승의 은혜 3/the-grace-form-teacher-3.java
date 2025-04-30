@@ -30,7 +30,7 @@ public class Main {
             int count = 0;
             int price = 0;
             for(int j = 0 ; j < n ; j ++){
-                if (price > b){
+                if (price + temp[j] > b){
                     break;
                 }
                 count ++;
