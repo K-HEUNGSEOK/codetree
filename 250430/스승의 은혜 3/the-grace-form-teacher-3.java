@@ -6,34 +6,50 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-      
+     
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); // 사람 수
         int b = sc.nextInt(); // 선물 살 수 있는 예산
         int ans = 0; //정답
-        int [] p = new int[1001];
-        int [] s = new int[1001];
+        Student[] students = new Student[1001];
+
         for(int i = 0 ; i < n ; i ++){
-            p[i] = sc.nextInt();
-            s[i] = sc.nextInt();
+            students[i] = new Student(sc.nextInt(),sc.nextInt());
         }
 
         for(int i = 0 ; i < n ; i ++){
-            p[i] /= 2;
-            int price = p[i] + s[i]; // 처음 선물 가격
-            int count = 0;
+            Student[] temp = new Student[n];
             for(int j = 0 ; j < n ; j ++){
-                if (i == j) continue;
-                if (price > b){
+                temp[j] = new Student(students[j].price,students[j].delivery);
+            }
+            temp[i].price /= 2;
+            Arrays.sort(temp,0,n);
+
+            int sum = 0 ;
+            int count = 0 ;
+            for(int j = 0 ; j < n ; j ++){
+                sum += temp[j].delivery + temp[j].price;
+                if (sum > b){
                     break;
                 }
-                count ++;
-                price += p[j] + s[j];
-
+                count++;
             }
-            p[i] *= 2;
-            ans = Math.max(ans, count);
+            ans = Math.max(ans,count);
         }
         System.out.println(ans);
+
+    }
+    static class Student implements Comparable<Student>{
+        int price;
+        int delivery;
+
+        public Student(int price, int delivery) {
+            this.price = price;
+            this.delivery = delivery;
+        }
+        @Override
+        public int compareTo(Student o){
+            return (this.price+this.delivery) - (o.price+o.delivery);
+        }
     }
 }
