@@ -24,10 +24,11 @@ public class Main {
             for(int k = 0; k < n ; k ++){
                 temp[k] = p[k] + s[k];
             }
-            Arrays.sort(temp,0,n);
             temp[i] /= 2;
+              Arrays.sort(temp,0,n);
+
             int count = 0;
-            int price = temp[i];
+            int price = 0;
             for(int j = 0 ; j < n ; j ++){
                 if (price > b){
                     break;
