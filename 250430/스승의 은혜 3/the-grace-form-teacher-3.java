@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-      
+    
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); // 사람 수
         int b = sc.nextInt(); // 선물 살 수 있는 예산
@@ -24,13 +24,12 @@ public class Main {
             for(int k = 0; k < n ; k ++){
                 temp[k] = p[k] + s[k];
             }
-            temp[i] /= 2;
-              Arrays.sort(temp,0,n);
-
+            temp[i] = p[i] / 2 + s[i];
+            Arrays.sort(temp,0,n);
             int count = 0;
-            int price = 0;
+            int price = temp[i];
             for(int j = 0 ; j < n ; j ++){
-                if (price + temp[j] > b){
+                if (price > b){
                     break;
                 }
                 count ++;
