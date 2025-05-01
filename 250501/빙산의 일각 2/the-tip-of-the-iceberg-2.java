@@ -6,7 +6,7 @@
 
     public class Main {
         public static void main(String[] args) throws FileNotFoundException {
-         
+           
             Scanner sc = new Scanner(System.in);
             int n = sc.nextInt();
             int [] arr = new int[n];
@@ -17,17 +17,17 @@
 
             int ans = 0;
             for(int i = 1; i < 1000; i ++){
-                int [] counting = new int[1000];
+                int [] counting = new int[n];
 
                 for(int j = 0 ; j < n ; j ++){
                     int value = arr[j] - i;
                     if (value <= 0) continue;
-                    counting[value]++;
+                    counting[j] = value;
             }
                 int cnt = 0;
-                for(int k = 1; k < 1000; k ++){
+                for(int k = 0; k < n; k ++){
                     if (counting[k] == 0) continue;
-                    for(int l = k + 1; l < 1000; l ++){
+                    for(int l = k + 1; l < n; l ++){
                         if (counting[l] == 0){
                             cnt ++;
                             break;
@@ -36,6 +36,6 @@
                     ans = Math.max(ans,cnt);
                 }
         }
-            System.out.println(ans);
+            System.out.println(ans-1);
     }
     }
