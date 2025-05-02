@@ -6,7 +6,7 @@
 
     public class Main {
         public static void main(String[] args) throws FileNotFoundException {
-         
+           
             Scanner sc = new Scanner(System.in);
             int a = sc.nextInt();
             int b = sc.nextInt();
@@ -18,7 +18,7 @@
             }else{
             for(int i = 0 ; i < 1000 ; i ++){
                 for(int j = 0 ; j < 1000; j ++){
-                    int total = a + (a * i) + b + (b * j);
+                    int total = (a*i) + (b*j);
                     if (total > c){
                         break;
                     }
