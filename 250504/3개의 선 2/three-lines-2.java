@@ -6,11 +6,11 @@
 
     public class Main {
         public static void main(String[] args) throws FileNotFoundException {
-           
+      
             Scanner sc = new Scanner(System.in);
             int n = sc.nextInt();
-            int[] x = new int[11];
-            int[] y = new int[11];
+            int[] x = new int[21];
+            int[] y = new int[21];
 
             for(int i = 0 ; i < n ; i ++){
                 x[i] = sc.nextInt();
