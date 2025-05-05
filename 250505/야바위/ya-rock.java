@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-      
+     
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int [] a = new int[n];
@@ -17,7 +17,7 @@ public class Main {
             c[i] = sc.nextInt();
         }
         int ans = 0;
-        for(int i = 0 ; i < n ; i ++){
+        for(int i = 1 ; i <=3 ; i ++){
             int [] arr = new int[4];
             arr[i] = 1;
             int count = 0;
