@@ -1,39 +1,41 @@
-        import javax.swing.plaf.PanelUI;
-        import java.io.FileInputStream;
-        import java.io.FileNotFoundException;
-        import java.util.Arrays;
-        import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
     
-        public class Main {
-    
-            public static void main(String[] args) throws FileNotFoundException {
-              
-                Scanner sc = new Scanner(System.in);
-                int n = sc.nextInt();
-                String str = sc.next();
-                char[] target = str.toCharArray();
-                for(int i = 0 ; i < 1; i ++){
-                    for(int j = i+1 ; j <= n; j ++){
-                        String sub = str.substring(i,j); //A;
-                        String copy = str;
-                        int count = 0;
-                        int index = 0;
-                        while (true){
-                            int len = copy.length();
-                            index = copy.indexOf(sub,index);
-                            if (index == -1){
-                                break;
-                            }
-                            copy = copy.substring(0,index) + copy.substring(index,len);
-                            index += 1;
-                            count ++;
-                        }
-    
-                        if (count == 1){
-                            System.out.println(j);
-                            break;
-                        }
-                    }
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String str = sc.next();
+
+        for (int len = 1; len <= n; len++) {
+            boolean hasDuplicate = false;
+
+            // 길이 len짜리 모든 부분 문자열 검사
+            for (int i = 0; i <= n - len; i++) {
+                String sub = str.substring(i, i + len);
+                int count = 0;
+                int idx = 0;
+
+                // 등장 횟수 세기 (두 번 이상 나오면 중단)
+                while ((idx = str.indexOf(sub, idx)) != -1) {
+                    count++;
+                    if (count > 1) break;
+                    idx++;
+                }
+
+                if (count > 1) {
+                    hasDuplicate = true;
+                    break;
                 }
             }
+
+            // 만약 중복된 조각 하나도 없었다면 이 len이 답
+            if (!hasDuplicate) {
+                System.out.println(len);
+                return;
+            }
         }
+    }
+}
