@@ -5,24 +5,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-       
+     
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int b =sc.nextInt();
         int c= sc.nextInt();
         int ans = 0 ;
-        for(int i = 0 ; i < 5 ; i ++){
-            for(int j = 0; j < 5; j ++){
-                int x = a *i;
-                int z = b * j;
-                int total = x + z;
+        for(int i = 0 ; i * a <= c; i++){
+            int cnt = a * i;
 
-                if (total > c){
-                    break;
-                }
-                ans = Math.max(total,ans);
-            }
+            int numB = (c - cnt) / b;
+
+            cnt += numB * b;
+            ans = Math.max(ans,cnt);
         }
-        System.out.println(ans );
+        System.out.println(ans);
     }
 }
