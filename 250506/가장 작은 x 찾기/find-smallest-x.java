@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        
+      
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] x = new int[n];
@@ -15,7 +15,7 @@ public class Main {
             y[i] = sc.nextInt();
         }
         int ans = Integer.MAX_VALUE;
-        for(int i = 1; i <= 10; i ++){
+        for(int i = 1; i <= 10000; i ++){
             boolean a = true;
             int cnt = i;
             int check = cnt * 2;
