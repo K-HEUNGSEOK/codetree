@@ -6,7 +6,7 @@
     public class Main {
 
         public static void main(String[] args) throws FileNotFoundException {
-          
+         
             Scanner sc = new Scanner(System.in);
             int n = sc.nextInt();
             int [] sum = new int[n -1];
@@ -32,7 +32,9 @@
                 }
 
                 if (end){
-                    System.out.println(Arrays.toString(arr));
+                    for (int i : arr) {
+                        System.out.print(i + " ");
+                    }
                     break;
                 }
             }
