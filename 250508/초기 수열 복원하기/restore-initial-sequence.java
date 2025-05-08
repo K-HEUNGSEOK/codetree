@@ -23,7 +23,7 @@
                 boolean end = true;
                 for(int i = 1; i < n ; i++){
                     arr[i] = sum[i -1] - arr[i-1];
-                    if (arr[i] < 0 || checked[arr[i]]){
+                    if (arr[i] < 1 || arr[i] > n || checked[arr[i]]){
                         end = false;
                         break;
                     }
