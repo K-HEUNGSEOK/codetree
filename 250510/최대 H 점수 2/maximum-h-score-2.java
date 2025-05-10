@@ -7,7 +7,7 @@ public class Main {
     static int l;
     static int[] arr;
     public static void main(String[] args) throws IOException {
-       
+      
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         l = sc.nextInt();
@@ -27,41 +27,27 @@ public class Main {
 
     private static boolean isCheck(int num) {
         int cnt = 0;
-        int index = 0;
+        int newCnt = 0;
         for(int i = 0 ; i < n ; i ++){
             if (arr[i] >= num){
                 cnt ++;
             }
-            if (arr[i] < num){
-                index ++;
+            if (arr[i] == num -1){
+                newCnt ++;
             }
         }
-        if (l > 0){
-            int[] count = new int[index];
-            int idx = 0;
-            for(int i = 0 ; i < n ; i ++){
-                if (arr[i] < num){
-                    count[idx++] = arr[i];
-                }
-            }
-            Arrays.sort(count);
-            if (index > 0){
-            int len = index -1;
-            for(int i = 0 ; i < l; i ++){
-                count[len--] ++;
-            }
-            }
-
-            for(int i = 0 ; i < index; i ++){
-                if (count[i] >= num){
-                    cnt ++;
-                }
-            }
-        }
-
         if (cnt >= num){
             return true;
         }
-        return false;
+        int need = num - cnt; // 부족분
+        if (need > l){
+            return false;
+        }
+
+        if (newCnt < need){
+            return false;
+        }
+        return true;
     }
 }
+
