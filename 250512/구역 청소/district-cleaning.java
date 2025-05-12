@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
       
         Scanner sc = new Scanner(System.in);
-        int [] arr = new int[11];
+        int [] arr = new int[101];
         int a = sc.nextInt();
         int b = sc.nextInt();
         int c = sc.nextInt();
