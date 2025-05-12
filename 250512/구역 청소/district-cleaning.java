@@ -23,7 +23,7 @@ public class Main {
             }
         }
         System.out.println(cnt );
-        System.out.println(Arrays.toString(arr));
+
 
     }
 
