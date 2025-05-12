@@ -14,38 +14,34 @@ public class Main {
             x[i] = sc.nextInt();
             y[i] = sc.nextInt();
         }
-        boolean check = false; // 스위치
-        for(int i = 0 ; i < n ; i ++){
-            int[] arr = new int[101]; // 여기에서 체크해볼거임
-            boolean second = false;
-            for(int j = 0; j < n ; j ++){
-                for(int k = x[j]; k <= y[j]; k++){
-                    if (i == j) continue;
-                    arr[k]++; // 1 2 3 이 다 들어가
-                }
-
-                for (int i1 : arr) {
-                    if (i1 >= n-1){ // n-1 만큼 차면
-                        check = true; // 스위치를 켜주고
-                        second = true;
-                        break;
-                    }
-                }
-                if (second){
-                    break;
-                }
+        boolean ans = false;
+        for(int i = 0; i < n ; i ++){
+            int max1 = 0;
+            int min2 = Integer.MAX_VALUE;
+            boolean possible = false;
+            for(int j = 0 ; j < n ; j ++){
+                if (i == j) continue;
+                //x1 값중에 가장 큰거
+                //x2 값중에 가장 작은거
+                max1 = Math.max(max1,x[j]);
+                min2 = Math.min(min2,y[j]);
             }
-            if (second){
-                break;
+
+            if (min2 >= max1){
+                possible = true;
+            }else {
+                possible = false;
+            }
+
+            if (possible){
+                ans = true;
             }
         }
-
-        if (check) {
+        if (ans){
             System.out.println("Yes");
         }else{
             System.out.println("No");
         }
-
 
     }
 }
