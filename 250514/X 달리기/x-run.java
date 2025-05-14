@@ -1,47 +1,30 @@
-import javax.swing.table.TableCellRenderer;
-import java.io.*;
-import java.util.Arrays;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) throws IOException {
-     
         Scanner sc = new Scanner(System.in);
-        int [] a = new int[10001];
-        int target = sc.nextInt();
-        int ans = Integer.MAX_VALUE;
-       for(int i = 1; i <= 10000; i ++){
-           int time = 1;
-           int move = 1;
-           a[0] = 0;
-           boolean check = false;
-           while (true) {
-               a[time] = a[time - 1] + move;
+        long X = sc.nextLong();  // 목표 거리
 
-               if (a[time] == target && move == 1) {
-                   ans = Math.min(ans, time);
-                   break;
-               }
+        // 1. √X 의 정수부 k 구하기 (부동소수 오차 보정)
+        int k = (int) Math.sqrt(X);
+        while ((long) k * k > X)       k--;
+        while ((long) (k + 1) * (k + 1) <= X) k++;
 
-               if (a[time] > target){
-                   break;
-               }
-               time++;
+        // 2. 남은 거리 d 계산
+        long d = X - (long) k * k;
 
-               if (!check && time >= i){
-                   check =true;
-               }
-               if (check) {
-                   if (move > 1) {
-                       move--;
-                   }
-               } else {
-                   move++;
-               }
-           }
-       }
+        // 3. 답 결정
+        long ans;
+        if (d == 0) {
+            ans = 2L * k - 1;    // 정확히 제곱수일 때
+        } else if (d <= k) {
+            ans = 2L * k;        // k*k < X <= k*k + k
+        } else {
+            ans = 2L * k + 1;    // k*k + k < X < (k+1)*(k+1)
+        }
+
         System.out.println(ans);
+       
     }
-
 }
