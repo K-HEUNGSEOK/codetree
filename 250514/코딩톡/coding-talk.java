@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-      
+    
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
@@ -23,12 +23,15 @@ public class Main {
         for(int i = p ; i< m ; i ++){
             person[c[i] - 'A'] = true;
         }
-      
+        if (u[p] == 0){
+            System.out.println(" ");
+        }else{
         for(int i = 0 ; i < n ; i ++){
             if (!person[i]){
                 int x = i + 'A';
                 System.out.print((char) x + " ");
             }
+        }
         }
     }
 }
