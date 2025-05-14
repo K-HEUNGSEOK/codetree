@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-    
+      
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
@@ -21,8 +21,18 @@ public class Main {
         }
 
         for(int i = p ; i< m ; i ++){
+            //1. p 이후에 보낸애들은 무조건 true
             person[c[i] - 'A'] = true;
         }
+        // 2. u[p] 랑 같은애들도 true
+        for(int i = 0 ; i < m ; i ++){
+            if (u[p] == u[i]){
+                person[c[i] - 'A'] = true;
+            }
+        }
+
+
+
         if (u[p] == 0){
             System.out.println(" ");
         }else{
