@@ -18,7 +18,7 @@ public class Main {
                         if (j - i > maxDist){
                             maxDist = j - i;
                             maxI = i;
-                            maxI = j;
+                            maxJ = j;
                         }
                         break;
                     }
