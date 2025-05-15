@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-      
+   
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int b = sc.nextInt();
@@ -13,7 +13,7 @@ public class Main {
 
         if (b == a + 1 && b == c -1 || b == a -1 && b == c + 1){
             System.out.println(0);
-        }else if(isCheck(b+1, b, c) || isCheck(b-1,b,c)){
+        }else if(isCheck(b+1, b, c)){
             System.out.println(1);
         }else {
             System.out.println(2);
