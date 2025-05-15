@@ -5,24 +5,36 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        
+      
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         char[] arr = sc.next().toCharArray();
-        int ans = 0;
-        for(int i = 0 ; i < n ; i ++){
-            if (arr[i] == '0'){
-                int mins = Integer.MAX_VALUE;
-                arr[i] = '1';
-                for(int j = 0 ; j < n ; j ++){
-                    for(int k = j + 1; k < n ; k ++){
-                        if (arr[j] == '1' && arr[k] == '1'){
-                            mins = Math.min(mins, k - j);
+        int maxDist = 0;
+        int maxI = 0 ; int maxJ = 0;
+        for(int i = 0; i < n ; i ++){
+            if(arr[i] == '1'){
+                for(int j = i + 1; j < n ; j ++){
+                    if (arr[j] == '1'){
+                        if (j - i > maxDist){
+                            maxDist = j - i;
+                            maxI = i;
+                            maxI = j;
                         }
+                        break;
                     }
                 }
-                ans = Math.max(ans,mins);
-                arr[i] = '0';
+            }
+        }
+        arr[(maxI + maxJ) / 2] = '1';
+        int ans = Integer.MAX_VALUE;
+        for(int i = 0; i < n ; i ++){
+            if (arr[i] == '1'){
+                for(int j = i + 1; j < n ; j ++){
+                    if (arr[j] == '1'){
+                        ans = Math.min(ans,j - i);
+                        break;
+                    }
+                }
             }
         }
         System.out.println(ans);
