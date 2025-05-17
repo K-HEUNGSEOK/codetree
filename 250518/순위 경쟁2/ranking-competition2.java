@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-      
+  
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int cntA = 0; //A
@@ -38,7 +38,7 @@ public class Main {
                 ans ++;
             }
         }
-        else if(cntA == cntB){
+        else if(cntA != 0 && cntB != 0 && cntA == cntB){
             if (first != 3){
                 first = 3;
                 ans ++;
