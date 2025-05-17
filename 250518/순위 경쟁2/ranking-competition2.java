@@ -6,13 +6,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-       
+      
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int cntA = 0; //A
         int cntB = 0; //B
         int ans = 0; //정답
         int first = 0;
+
+        if(n == 1){
+            System.out.println(0);
+            System.exit(0);
+        }
         for(int i = 0 ; i < n ; i ++){
         char c = sc.next().charAt(0);
         int score = sc.nextInt();
@@ -39,7 +44,7 @@ public class Main {
                 ans ++;
             }
         }
-        
+
         }
         System.out.println(ans);
 
