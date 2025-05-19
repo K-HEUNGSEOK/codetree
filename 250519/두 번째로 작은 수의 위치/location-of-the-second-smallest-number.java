@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-       
+   
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int [] arr = new int[n];
@@ -39,7 +39,7 @@ public class Main {
 
         //이게 터지면 두번째로 작은수가 여러개인 것
         for(int i = idx+1; i < n; i ++){
-            if (result == arr[i]){
+            if (result == copy[i]){
                 return -1;
             }
         }
