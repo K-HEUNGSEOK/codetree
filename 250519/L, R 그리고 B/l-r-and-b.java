@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-       
+    
         Scanner sc = new Scanner(System.in);
         char[][] arr = new char[10][10];
         for(int i = 0 ; i < 10 ; i ++){
@@ -36,10 +36,10 @@ public class Main {
         }
         int total = (Math.abs((lIdxI + lIdxJ) - (bIdxI + bIdxJ)));
 
-        if (lIdxI == bIdxI && bIdxI == rIdxI){
+        if (lIdxI == bIdxI && bIdxI == rIdxI && bIdxJ > rIdxJ){ // 같은 위치에 있으면서
             total += 1;
             System.out.println(total);
-        }else if(lIdxJ == bIdxJ && bIdxJ == rIdxJ){
+        }else if(lIdxJ == bIdxJ && bIdxJ == rIdxJ && bIdxI > rIdxI){
             total +=1;
             System.out.println(total);
         }else{
