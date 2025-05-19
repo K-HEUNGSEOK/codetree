@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-    
+     
         Scanner sc = new Scanner(System.in);
         char[][] arr = new char[10][10];
         for(int i = 0 ; i < 10 ; i ++){
@@ -34,19 +34,23 @@ public class Main {
                 }
             }
         }
-        int total = (Math.abs((lIdxI + lIdxJ) - (bIdxI + bIdxJ)));
+        int manhattan = Math.abs(lIdxI - bIdxI) + Math.abs(lIdxJ - bIdxJ);
+        int answer = manhattan-1;
 
-        if (lIdxI == bIdxI && bIdxI == rIdxI && bIdxJ > rIdxJ){ // 같은 위치에 있으면서
-            total += 1;
-            System.out.println(total);
-        }else if(lIdxJ == bIdxJ && bIdxJ == rIdxJ && bIdxI > rIdxI){
-            total +=1;
-            System.out.println(total);
-        }else{
-            total -=1;
-            System.out.println(total);
+        if (lIdxI == bIdxI && lIdxI == rIdxI
+                && rIdxJ > Math.min(lIdxJ, bIdxJ)
+                && rIdxJ < Math.max(lIdxJ, bIdxJ)) {
+            answer += 2;
         }
 
+// 같은 **열**에 있고, R 의 행이 L, B 사이에 있을 때
+        else if (lIdxJ == bIdxJ && lIdxJ == rIdxJ
+                && rIdxI > Math.min(lIdxI, bIdxI)
+                && rIdxI < Math.max(lIdxI, bIdxI)) {
+            answer += 2;
+        }
+
+        System.out.println(answer);
 
     }
 
