@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-    
+   
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int [] arr = new int[n];
@@ -15,7 +15,7 @@ public class Main {
         }
         int max = atomicMax(arr, n);
         int negativeMax = negativeMax(arr,n);
-        
+
         System.out.println(Math.max(max,negativeMax));
     }
 
@@ -24,9 +24,11 @@ public class Main {
         //맨 뒤에서부터 3개
         //11 10 9 -> n-1 11
         int total = 1;
-        for(int i = n-1; i >= 9; i--){
+        for(int i = n-1; i >= n-3; i--){
             total *= arr[i];
+
         }
+
         return total;
     }
 
@@ -35,6 +37,7 @@ public class Main {
         total *= arr[0];
         total *= arr[1];
         total *= arr[n-1];
+
         return total;
     }
 }
