@@ -8,30 +8,29 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-      
+       
         Scanner sc = new Scanner(System.in);
+
         int n = sc.nextInt();
         int m = sc.nextInt();
         int[] arr = new int[n];
-        int cnt = 0;
-        for(int i = 0 ; i < arr.length; i ++){
+        for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
-            if (arr[i] == 1){
-                cnt ++;
+        }
+
+        int covered = -1;      // 지금까지 커버된 가장 오른쪽 인덱스
+        int wifiCount = 0;     // 설치한 와이파이 개수
+
+        for (int i = 0; i < n; i++) {
+            // 사람이 살고 있고, 아직 커버되지 않은 위치라면
+            if (arr[i] == 1 && i > covered) {
+                wifiCount++;
+                // i 에서 설치 → 오른쪽으로도 m, 왼쪽으로도 m →
+                // 0-based index 로는 i + 2*m 까지 커버됨
+                covered = i + 2 * m;
             }
         }
 
-        int operation = (2 * m + 1);
-        if (m == 0 || cnt == 0){
-            System.out.println(cnt);
-        }
-        else if( operation > n){
-            System.out.println(1);
-        }
-        else if(n % operation == 0){
-            System.out.println(n / operation);
-        }else {
-            System.out.println(n / operation + 1);
-        }
+        System.out.println(wifiCount);
     }
 }
