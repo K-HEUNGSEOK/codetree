@@ -20,15 +20,18 @@ public class Main {
                 cnt ++;
             }
         }
+
+        int operation = (2 * m + 1);
         if (m == 0 || cnt == 0){
             System.out.println(cnt);
         }
-        else if((2 * m + 1) > n){
+        else if( operation > n){
             System.out.println(1);
         }
-        else if (n % 2 == 0) System.out.println(n / (2 * m + 1));
-        else {
-            System.out.println(n / (2 * m + 1) + 1);
+        else if(n % operation == 0){
+            System.out.println(n / operation);
+        }else {
+            System.out.println(n / operation + 1);
         }
     }
 }
