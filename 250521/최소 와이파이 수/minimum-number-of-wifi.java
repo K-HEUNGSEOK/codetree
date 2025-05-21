@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-   
+      
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
@@ -20,7 +20,7 @@ public class Main {
                 cnt ++;
             }
         }
-        if (m == 0){
+        if (m == 0 || cnt == 0){
             System.out.println(cnt);
         }
         else if((2 * m + 1) > n){
