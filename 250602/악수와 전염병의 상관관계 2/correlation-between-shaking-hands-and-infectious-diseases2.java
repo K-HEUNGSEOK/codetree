@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-       
+     
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt(); //개발자 숫자
         int K = sc.nextInt(); //전염 시킬 수 있는 횟수
@@ -29,17 +29,17 @@ public class Main {
         for(int i = 0 ; i < T; i ++){
             int x = viri[i].x;
             int y = viri[i].y;
-            if (person[x]){
-                check[x] = K;
+            if (person[x] ){
+                check[x]++;
             }else if(person[y]){
-                check[y] = K;
+                check[y]++;
             }
 
-            if (person[x] && !person[y] && check[x] > 0){
+            if (person[x] && !person[y] && check[x] <= K){
                 person[y] = true;
                 check[x] -- ;
                 check[y] = K;
-            }else if(person[y] && !person[x] && check[y] > 0){
+            }else if(person[y] && !person[x] && check[y] <= K){
                 person[x] = true;
                 check[x] = K;
                 check[y] --;
