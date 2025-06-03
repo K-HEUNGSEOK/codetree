@@ -43,8 +43,10 @@ public class Main {
                     il.add(s.charAt(0));
             }
         }
+        StringBuilder sb = new StringBuilder();
         for (Character c : list) {
-            System.out.print(c);
+            sb.append(c);
         }
+        System.out.println(sb);
     }
 }
