@@ -4,21 +4,21 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-       
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+     
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int T = sc.nextInt();
+        int n = Integer.parseInt(st.nextToken());
+        int T = Integer.parseInt(st.nextToken());
 
         List<Character> list = new LinkedList<>();
-        String str = sc.next();
-        sc.nextLine();
+        String str = br.readLine();
         for(int i = 0 ; i < n ; i ++){
             list.add(str.charAt(i));
         }
         ListIterator<Character> il = list.listIterator(list.size()); //만듬
         for(int i = 0 ; i <T; i ++) {
-            String method = sc.nextLine();
+            String method = br.readLine();
 
             switch (method){
                 case "L":
