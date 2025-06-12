@@ -4,10 +4,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-      ;
+     
         Scanner sc = new Scanner(System.in);
-        char[] arr = sc.next().toCharArray();
-
+        String str = sc.next();
+        if (str.equals("1")){
+            System.out.println(0);
+            System.exit(0);
+        }
+        char[]arr = str.toCharArray();
         if (arr[1] == '1'){
             binayNumber(arr);
         }else{
