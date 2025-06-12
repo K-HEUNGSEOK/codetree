@@ -4,34 +4,36 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-     
+       
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
-        if (str.equals("1")){
-            System.out.println(0);
-            System.exit(0);
+
+        char[] arr = str.toCharArray();
+        int ans = 0;
+        for(int i = 0 ; i < arr.length; i ++){
+            for(int j = 0 ; j < arr.length; j ++){
+                if (i == j) continue;
+                if (arr[j] == '0'){
+                    arr[j] = '1';
+                   ans = Math.max(ans,binayNumber(arr));
+                    arr[j] = '0';
+                }else {
+                    arr[j] = '0';
+                    ans = Math.max(ans,binayNumber(arr));
+                    arr[j] = '1';
+                }
+
+            }
         }
-        char[]arr = str.toCharArray();
-        if (arr[1] == '1'){
-            binayNumber(arr);
-        }else{
-            binayNumber2(arr);
-        }
+        System.out.println(ans);
+
     }
 
-    private static void binayNumber(char[] arr) {
+    private static int binayNumber(char[] arr) {
         int num = 0;
         for(int i = 0 ; i < arr.length; i ++){
             num = num * 2 + (arr[i] -'0');
         }
-        System.out.println(num);
-    }
-    private static void binayNumber2(char[] arr) {
-        arr[1] = '1';
-        int num = 0;
-        for(int i = 0 ; i < arr.length; i ++){
-            num = num * 2 + (arr[i] -'0');
-        }
-        System.out.println(num);
+        return num;
     }
 }
