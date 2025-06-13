@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-      
+
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] x = new int[n];
@@ -13,17 +13,18 @@ public class Main {
             x[i] = sc.nextInt();
             y[i] = sc.nextInt();
         }
-        int result= 0 ;
-        for(int i = 1 ; i < n -1; i ++){
-            int ans = 0;
-            for(int j = 1; j < n -1; j ++){
-                if (i == j) continue;
-               ans += getNumber(x[0], y[0], x[j], y[j]);
+        int ans = Integer.MAX_VALUE;
+        for(int i = 1; i < n -1; i ++){
+            int total = 0;
+            int current = 0;
+            for(int j = 1 ; j < n ; j++){
+                if (i==j) continue;
+                total += getNumber(x[current],y[current],x[j],y[j]);
+                current = j;
             }
-            ans += getNumber(x[n-2],y[n-2], x[n-1],y[n-1]);
-            result = Math.max(result,ans);
+            ans = Math.min(ans,total);
         }
-        System.out.println(result);
+        System.out.println(ans);
     }
     static int getNumber(int x1, int y1, int x2, int y2){
         return Math.abs(x1 - x2) + Math.abs(y1 + y2);
