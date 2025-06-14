@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
     static int[] fibo;
     public static void main(String[] args) throws IOException {
-       
+    
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int [] arr = new int[n];
@@ -38,13 +38,14 @@ public class Main {
             int b = j % 10;
             int c = k % 10;
             int total = a + b + c;
+
             if (total > 9) {
                 return false;
             }
 
-            if (a > 0 ) i/=10;
-            if (b > 0 ) j/=10;
-            if (c > 0 ) k/=10;
+            if (i > 0 ) i/=10;
+            if (j > 0 ) j/=10;
+            if (k > 0 ) k/=10;
             maxNum/=10;
         }
         return true;
