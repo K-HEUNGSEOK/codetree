@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
     static int[] fibo;
     public static void main(String[] args) throws IOException {
-    
+        
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int [] arr = new int[n];
@@ -17,7 +17,7 @@ public class Main {
             for(int j = i + 1; j < n ; j ++){
                 for(int k = j + 1; k < n ; k ++){
                     if (check(arr[i],arr[j],arr[k])){
-                        ans += Math.max(ans,getTotal(arr[i],arr[j],arr[k]));
+                        ans = Math.max(ans,getTotal(arr[i],arr[j],arr[k]));
                     }
                 }
             }
