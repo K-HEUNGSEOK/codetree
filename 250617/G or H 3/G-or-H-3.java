@@ -8,7 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int k = sc.nextInt();
-        int[] arr = new int[101];
+        int[] arr = new int[10001];
         int max_num = 0;
         for (int i = 0; i < n; i++) {
             int num = sc.nextInt();
@@ -27,6 +27,9 @@ public class Main {
         for(int i = 1 ; i <= max_num; i ++){
             int sum = 0;
             for(int j = i ; j <= k+i; j ++){
+                if (j > 10000){
+                    break;
+                }
                 sum += arr[j];
             }
             ans = Math.max(ans,sum);
