@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-      
+        
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
@@ -20,11 +20,18 @@ public class Main {
         for (int i = 0; i < m; i++) {
             b[i] = sc.nextInt();
         }
+        Arrays.sort(b);
         int ans = 0;
         for (int i = 0; i <= n - m; i++) {
             boolean key = true;
+            int[] copy = new int[m];
+            int cnt = 0;
             for (int j = i; j < m + i; j++) {
-                if (!check(a[j], b)){
+                copy[cnt++] = a[j];
+            }
+            Arrays.sort(copy);
+            for(int j = 0 ; j < m ; j ++){
+                if (copy[j] != b[j]){
                     key = false;
                     break;
                 }
@@ -34,14 +41,5 @@ public class Main {
             }
         }
         System.out.println(ans);
-    }
-
-    private static boolean check(int num, int[] b) {
-        for (int target : b) {
-            if (num == target) {
-                return true;
-            }
-        }
-        return false;
     }
 }
