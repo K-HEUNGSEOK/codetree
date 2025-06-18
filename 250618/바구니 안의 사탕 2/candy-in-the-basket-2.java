@@ -18,14 +18,14 @@ public class Main {
             int p = sc.nextInt();
             box[p] += can;
         }
-        int total = 0;
-        if (n < k){
-            for (int i : box) {
-                total += i;
-            }
-            System.out.println(total);
-            System.exit(0);
-        }
+        // int total = 0;
+        // if (n < k){
+        //     for (int i : box) {
+        //         total += i;
+        //     }
+        //     System.out.println(total);
+        //     System.exit(0);
+        // }
         int ans = 0;
         for(int i = 1; i <= 200; i ++){
             int sum = 0;
