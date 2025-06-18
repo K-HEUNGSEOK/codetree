@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-       
+     
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int h = sc.nextInt();
@@ -17,7 +17,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        Arrays.sort(arr);
+//        Arrays.sort(arr);
         int ans = Integer.MAX_VALUE;
         for (int i = 0; i <= n - t; i++) {
             int total = 0;
