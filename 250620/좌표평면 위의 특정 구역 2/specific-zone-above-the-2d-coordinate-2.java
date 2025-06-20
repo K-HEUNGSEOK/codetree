@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
+   
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int [] x = new int[101];
@@ -17,7 +17,7 @@ public class Main {
             x[i] = sc.nextInt();
             y[i] = sc.nextInt();
         }
-        int ans = 40000000;
+        int ans = Integer.MAX_VALUE;
         for(int i = 0 ; i < n ; i ++){
             int minx = Integer.MAX_VALUE;
             int maxx = 0;
@@ -31,7 +31,7 @@ public class Main {
                 maxy = Math.max(maxy, y[j]);
                 miny = Math.min(miny,y[j]);
             }
-            ans = Math.min(ans, (maxx-miny) * (maxy-miny));
+            ans = Math.min(ans, (maxx-minx) * (maxy-miny));
         }
         System.out.println(ans);
 
