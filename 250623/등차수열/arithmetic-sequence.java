@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
+        
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n + 1];
@@ -16,12 +16,14 @@ public class Main {
             arr[i] = sc.nextInt();
         }int ans = 0;
         for(int k = 1 ; k <= 100; k ++){
+            int cnt = 0;
             for(int i = 0 ; i < n ; i ++){
                 for(int j = i + 1; j < n ; j ++){
                     if (arr[i] - k == k - arr[j]){
-                        ans ++;
+                        cnt ++;
                     }
                 }
+                ans = Math.max(ans,cnt);
             }
         }
         System.out.println(ans);
