@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-      
+       
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] a = new int[n];
@@ -21,25 +21,22 @@ public class Main {
             b[i] = sc.nextInt();
             c[i] = sc.nextInt();
         }
+
+        int ans = 0;
         for(int i = 1 ; i <= n ; i ++){
+            box[1] = box[2] = box[3] = 0;
             box[i] = 1;
-            int ans = 0;
+            int cnt = 0;
             for(int j = 0 ; j < n ; j ++){
                 int temp = box[a[j]];
                 box[a[j]] = box[b[j]];
                 box[b[j]] = temp;
                 if(box[c[j]] == 1){
-                    ans ++;
+                    cnt++;
                 }
             }
-            check[i] = ans;
+            ans = Math.max(ans,cnt);
         }
-        int max = 0 ;
-        for(int i = 1; i<= n ; i ++){
-            if (max < check[i]){
-                max = i;
-            }
-        }
-        System.out.println(max);
+        System.out.println(ans);
     }
 }
