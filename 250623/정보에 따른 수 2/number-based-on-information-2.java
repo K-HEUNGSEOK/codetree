@@ -23,7 +23,7 @@ public class Main {
         for (int i = start; i <= end; i++) {
             int ansS = Integer.MAX_VALUE;
             int ansN = Integer.MAX_VALUE;
-            for (int j = start; j <= end; j++) {
+            for (int j = 1; j <= 1000; j++) {
                 if (ch[j] == 'S') {
                     ansS = Math.min(ansS, Math.abs(j - i));
                 }
