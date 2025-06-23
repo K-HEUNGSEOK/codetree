@@ -18,16 +18,13 @@ public class Main {
             max = Math.max(max,arr[i]);
         }
         int ans = 0;
-        for(int k = 1 ; k <= max; k ++){
+        for(int k = 1 ; k <= 1000; k ++){
             int cnt = 0;
             for(int i = 0 ; i < n ; i ++){
                 if (arr[i] > k){
                     cnt ++;
-                    for(int j = i + 1; j < n ; j ++){
-                        if (arr[j] <= k ){
-                            i = j;
-                            break;
-                        }
+                    while (i+ 1 < n && arr[i + 1] > k){
+                        i ++;
                     }
                 }
             }
