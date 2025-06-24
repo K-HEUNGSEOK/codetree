@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
     static final int MAX = 110;
     public static void main(String[] args) throws FileNotFoundException {
-       =
+       
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int [] x = new int[MAX];
