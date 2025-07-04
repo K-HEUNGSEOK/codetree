@@ -4,14 +4,15 @@ import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
+    static int max = 1000000;
     public static void main(String[] args) throws FileNotFoundException {
-      
+    
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] white = new int[10001];
-        int[] black = new int[10001];
-        int[] box = new int[10001];
-        int current = 1000;
+        int[] white = new int[max];
+        int[] black = new int[max];
+        int[] box = new int[max];
+        int current = 100000;
         for(int i = 0; i < n ; i ++){
             int way = sc.nextInt();
             char command = sc.next().charAt(0);
@@ -35,12 +36,12 @@ public class Main {
         int w = 0;
         int b = 0;
         int g = 0;
-        for(int i = 0 ; i < 10001; i ++){
+        for(int i = 0 ; i < max; i ++){
             if (box[i] > 0 && white[i] >= 2 && black[i] >= 2 ){
                 box[i] = 3;
             }
         }
-        for(int i = 0 ; i < 10001; i ++){
+        for(int i = 0 ; i < max; i ++){
             if (box[i] == 1){
                 w ++;
             }else if(box[i] == 2){
