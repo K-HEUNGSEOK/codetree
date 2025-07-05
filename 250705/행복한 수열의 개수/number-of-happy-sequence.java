@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-
+   
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
@@ -16,19 +16,22 @@ public class Main {
             }
         }
         int ans = 0;
-
+        if (m == 1){
+            System.out.println(n+n);
+            System.exit(0);
+        }
         for(int i = 0; i < n ; i ++){
             boolean flag = false;
             int len = 1;
             for(int j = 1 ; j < n ; j ++){
                 if (arr[i][j-1] == arr[i][j]){
                     len ++;
+                }else{
+                    len = 1;
                 }
                 if (len >= m){
                     flag = true;
                     break;
-                }else{
-                    len = 1;
                 }
             }
             if (flag){
@@ -42,12 +45,12 @@ public class Main {
             for(int j = 1 ; j < n ; j ++){
                 if (arr[j-1][i] == arr[j][i]){
                     len ++;
+                }else{
+                    len = 1;
                 }
                 if (len >= m){
                     flag = true;
                     break;
-                }else{
-                    len = 1;
                 }
             }
             if (flag){
