@@ -16,32 +16,41 @@ public class Main {
             }
         }
         int ans = 0;
-        for(int i = 0 ; i < n ; i ++){
-            int cnt = 1;
-            for(int j = 0 ; j <= n -m ; j ++){
-                for(int k = j+1 ; k <=n-m+j ; k ++){
-                    if (k >= n) break;
-                    if (arr[i][k] == arr[i][k-1]){
-                        cnt ++;
-                    }
+
+        for(int i = 0; i < n ; i ++){
+            boolean flag = false;
+            int len = 1;
+            for(int j = 1 ; j < n ; j ++){
+                if (arr[i][j-1] == arr[i][j]){
+                    len ++;
+                }
+                if (len >= m){
+                    flag = true;
+                    break;
+                }else{
+                    len = 1;
                 }
             }
-            if (cnt >= m){
+            if (flag){
                 ans ++;
             }
         }
 
-        for(int i = 0 ; i < n ; i ++){
-            int cnt = 1;
-            for(int j = 0 ; j <= n -m ; j ++){
-                for(int k = j+1 ; k <=n-m+j ; k ++){
-                    if (k >= n) break;
-                    if (arr[k][i] == arr[k-1][i]){
-                        cnt ++;
-                    }
+        for(int i = 0; i < n ; i ++){
+            boolean flag = false;
+            int len = 1;
+            for(int j = 1 ; j < n ; j ++){
+                if (arr[j-1][i] == arr[j][i]){
+                    len ++;
+                }
+                if (len >= m){
+                    flag = true;
+                    break;
+                }else{
+                    len = 1;
                 }
             }
-            if (cnt >= m){
+            if (flag){
                 ans ++;
             }
         }
