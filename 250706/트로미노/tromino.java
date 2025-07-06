@@ -1,78 +1,62 @@
-import java.io.*;
-
-import java.sql.SQLOutput;
-import java.util.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main {
-    static int n,m;
-    static int[][] arr;
+    public static final int MAX_NUM = 200;
+
+    public static int n, m;
+    public static int[][] grid = new int[MAX_NUM][MAX_NUM];
+
+    // 가능한 모든 모양을 전부 적어줍니다.
+    static int[][][] arr = {
+            {{1,1,0}, {1,0,0}, {0,0,0}},
+            {{1,1,0},{0,1,0},{0,0,0}},
+            {{0,1,0},{1,1,0},{0,0,0}},
+            {{1,0,0},{1,1,0},{0,0,0}},
+            {{1,1,1},{0,0,0},{0,0,0}},
+            {{1,0,0},{1,0,0},{1,0,0}},
+            };
+
+    // 주어진 위치에 대하여 가능한 모든 모양을 탐색하며 최대 합을 반환합니다.
+    public static int getMaxSum(int x, int y) {
+        int max = 0;
+
+        for(int i = 0; i < 6 ; i ++){
+            boolean flag = true;
+            int sum = 0;
+            for(int dx = 0 ; dx < 3; dx ++){
+                for(int dy = 0; dy < 3; dy ++){
+                    if (arr[i][dx][dy] == 0) continue;
+                    if (x + dx >= n || y + dy >= m) flag = false;
+                    else{sum += grid[x+dx][y+dy];}
+                }
+            }
+            if (flag){
+                max = Math.max(max,sum);
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
-     
+       
         Scanner sc = new Scanner(System.in);
+
         n = sc.nextInt();
         m = sc.nextInt();
-        arr = new int[n][m];
-        for(int i = 0 ; i < n ; i ++){
-            for(int j = 0 ; j < m ; j ++){
-                arr[i][j] = sc.nextInt();
-            }
-        }
-        int max= 0;
-        max = Math.max(check(),check2());
-        System.out.println(max);
 
-    }
-    static int check2(){
-        int max = 0;
-        for(int i = 0 ; i < n ; i ++){
-            for(int j = 0 ; j < n ; j ++){
-                if (i + 1 < n && j + 1 < m){
-                    int s = arr[i][j] + arr[i+1][j] + arr[i+1][j+1];
-                    max = Math.max(max,s);
-                }
+        for(int i = 0; i < n; i++)
+            for(int j = 0; j < m; j++)
+                grid[i][j] = sc.nextInt();
 
-                if (i + 1 < n && j + 1 < m){
-                    int s = arr[i][j] + arr[i+1][j] + arr[i][j+1];
-                    max = Math.max(max,s);
-                }
+        int ans = 0;
 
-                if (i + 1 < n && j + 1 < m){
-                    int s = arr[i][j] + arr[i][j+1] + arr[i+1][j+1];
-                    max = Math.max(max,s);
-                }
-                if (i + 1 < n && j + 1 < m){
-                    int s = arr[i][j] + arr[i][j+1] + arr[i+1][j+1];
-                    max = Math.max(max,s);
-                }
-                if (i -1 >= 0 && j + 1 < m){
-                    int s = arr[i][j] + arr[i][j+1] + arr[i-1][j+1];
-                    max = Math.max(max,s);
-                }
-            }
-        }
-        return max;
-    }
-    static int check(){
-        int max = 0;
-        for(int i = 0 ; i < n ; i ++){
-            for(int j = 0 ; j < m ; j ++){
-                //가로
-                if (j + 2 < m){
-                    int s = arr[i][j] + arr[i][j+1] + arr[i][j+2];
-                    max = Math.max(max,s);
-                }
-                //세로
-                if (i + 2 < n){
-                    int s = arr[i][j] + arr[i+1][j] + arr[i+2][j];
-                    max = Math.max(max,s);
-                }
-                //대각선
-              
-            }
-        }
-        return max;
-    }
-    static boolean isRange(int x, int y ){
-        return 0 <= x && x < n && 0 <= y && y < m;
+        // 격자의 각 위치에 대하여 탐색하여줍니다.
+        for(int i = 0; i < n; i++)
+            for(int j = 0; j < m; j++)
+                ans = Math.max(ans, getMaxSum(i, j));
+
+        System.out.print(ans);
     }
 }
