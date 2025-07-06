@@ -7,7 +7,7 @@ public class Main {
     static int n,m;
     static int[][] arr;
     public static void main(String[] args) throws FileNotFoundException {
-       
+     
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         m = sc.nextInt();
@@ -17,7 +17,7 @@ public class Main {
                 arr[i][j] = sc.nextInt();
             }
         }
-       int max= 0;
+        int max= 0;
         max = Math.max(check(),check2());
         System.out.println(max);
 
@@ -67,14 +67,7 @@ public class Main {
                     max = Math.max(max,s);
                 }
                 //대각선
-                if (i + 2 < n && j + 2 < m){
-                    int s = arr[i][j] + arr[i+1][j+1] + arr[i+2][j+2];
-                    max =Math.max(max,s);
-                }
-                if (i - 2 >= 0 && j + 2 < m){
-                    int s = arr[i][j] + arr[i-1][j+1] + arr[i-2][j+2];
-                    max =Math.max(max,s);
-                }
+              
             }
         }
         return max;
