@@ -5,12 +5,12 @@ import java.util.*;
 public class Main {
     static int [] dy;
     public static void main(String[] args) throws FileNotFoundException {
-
+   
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int max = 100000;
-        int [] arr = new int[2 * max + 1];
-        int current = 10;
+        int [] arr = new int[max];
+        int current = 1000;
 
         for(int i = 0; i < n ; i ++){
             int way = sc.nextInt();
