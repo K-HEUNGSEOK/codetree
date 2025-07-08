@@ -9,7 +9,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int max = 100000;
-        int [] arr = new int[max * 2 + 1];
+        int [] arr = new int[2 * max + 1];
         int current = 10;
 
         for(int i = 0; i < n ; i ++){
