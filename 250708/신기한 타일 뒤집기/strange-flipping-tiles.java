@@ -10,7 +10,7 @@ public class Main {
         int n = sc.nextInt();
         int max = 100000;
         int [] arr = new int[max];
-        int current = 1000;
+        int current = 100000;
 
         for(int i = 0; i < n ; i ++){
             int way = sc.nextInt();
