@@ -8,7 +8,7 @@ public class Main {
     static int n, m, ans;
     static int[][] arr;
     public static void main(String[] args) throws IOException {
-       
+   
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         m = sc.nextInt();
@@ -19,40 +19,39 @@ public class Main {
             }
         }
         ans = 0;
-        if (m == 1){
-            System.out.println(n + n);
-            return;
-        }
-        for(int i = 0; i < n ; i ++){
-           ans = Math.max(ans, happySequence(i));
+
+
+        for(int i = 0 ; i < n ; i ++){
+            if (isCheck(i)) ans ++;
+            if (isCheck2(i)) ans ++;
         }
         System.out.println(ans);
     }
-    static int happySequence(int index){
-        int[] width = new int[10];
-        int[] height = new int[10];
-        int cnt= 0;
-        //각각 가로 와 세로를 봐야함
-        for(int i = 0; i < n; i ++){
-           int num = arr[i][0];
-           height[num] ++;
-        }
-        for(int i = 0; i < n ; i++){
-            int num = arr[index][i];
-            width[num] ++;
-        }
-        for(int i = 0 ; i < 10 ; i ++){
-            if (width[i] >= m){
+    //가로 체크
+    static boolean isCheck(int index){
+        int cnt = 1;
+        if (cnt == m) return true;
+        for(int i = 0 ; i < n -1; i ++){
+            if (arr[index][i] == arr[index][i +1]){
                 cnt ++;
-                break;
+                if (cnt >= m) return true;
+            }else{
+                cnt =1;
             }
         }
-        for(int i = 0 ; i < 10 ; i ++){
-            if (height[i] >= m){
+        return false;
+    }
+    static boolean isCheck2(int index){
+        int cnt =1;
+        if (cnt == m) return true;
+        for(int i = 0 ; i < n-1 ; i ++){
+            if (arr[i][index] == arr[i+1][index]){
                 cnt ++;
-                break;
+                if (cnt >= m)return true;
+            }else{
+                cnt = 1;
             }
         }
-        return cnt;
+        return false;
     }
 }
