@@ -6,7 +6,7 @@ public class Main {
     static int n,ans;
     static int[] param;
     public static void main(String[] args) throws IOException {
-
+     
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         ans = 0;
@@ -35,7 +35,7 @@ public class Main {
                 ans ++;
             }
         }else{
-            for(int i = 1; i <= n ; i ++){
+            for(int i = 1; i <= 4 ; i ++){
                 param[v] = i;
                 DFS(v + 1);
             }
