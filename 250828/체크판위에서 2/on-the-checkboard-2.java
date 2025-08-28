@@ -22,8 +22,8 @@ public class Main {
 
         int ans = 0;
         char start = arr[0][0];
-        for(int i = 0 ; i < r; i ++){
-            for(int j = 0 ; j < c; j ++){
+        for(int i = 1 ; i < r; i ++){
+            for(int j = 1 ; j < c; j ++){
                 if (start != arr[i][j]){
                     char first = arr[i][j];
                     for(int k = i + 1; k < r-1; k ++){
