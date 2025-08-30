@@ -8,7 +8,7 @@ public class Main {
     static int[] dy = {0, 1, 1, 1, 0, -1, -1, -1};
 
     public static void main(String[] args) throws IOException {
-   
+        
         Scanner sc = new Scanner(System.in);
         n = 20;
         ans = 0;
@@ -28,6 +28,7 @@ public class Main {
                 }
             }
         }
+        System.out.println(0);
     }
     static boolean logic(int x , int y){
         int color = arr[x][y];
