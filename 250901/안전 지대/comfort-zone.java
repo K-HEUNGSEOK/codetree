@@ -9,11 +9,11 @@ public class Main {
     static int[] dx = {-1,0,1,0};
     static int[] dy = {0,1,0,-1};
     public static void main(String[] args) throws IOException {
-      
+        
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         m = sc.nextInt();
-        team = 0;
+        team = 1;
         ans = 0;
         graph = new int[n][m];
         for(int i = 0 ; i < n ; i ++){
