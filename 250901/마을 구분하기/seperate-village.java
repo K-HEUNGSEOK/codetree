@@ -9,7 +9,7 @@ public class Main {
     static int[] dx = {-1,0,1,0};
     static int[] dy = {0,1,0,-1};
     public static void main(String[] args) throws IOException {
-      
+       
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         graph = new int[n][n];
@@ -19,16 +19,23 @@ public class Main {
                 graph[i][j] = sc.nextInt();
             }
         }
+        boolean flag = false;
 
         for(int i = 0 ; i < n ; i ++){
             for(int j = 0; j < n ; j ++){
                 if (graph[i][j] == 1){
                     ans ++;
+                    flag = true;
                     cnt = 1;
                     DFS(i,j);
                     sb.append(cnt).append(" ");
                 }
             }
+        }
+
+        if (!flag) {
+            System.out.println(0);
+            return;
         }
         System.out.println(ans);
         String[] split = sb.toString().split(" ");
