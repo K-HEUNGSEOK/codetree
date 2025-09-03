@@ -8,7 +8,7 @@ public class Main {
     static List<int[]> list = new ArrayList<>();
     static int[] param;
     public static void main(String[] args) throws IOException {
-
+        
         Scanner sc = new Scanner(System.in);
         //폭탄을 터트리면 다 2로 바꿔버리고 숫자세고 다시 0으로 바꿔놓는 그런식으로 해야할듯
 
@@ -16,6 +16,11 @@ public class Main {
         //2번 폭탄 상하좌우
         //3번 폭탄
         n = sc.nextInt();
+        if (n == 1) {
+            System.out.println(1);
+            return;
+        }
+
         ans = 0;
         graph = new int[n][n];
         for(int i = 0 ; i < n ; i ++){
