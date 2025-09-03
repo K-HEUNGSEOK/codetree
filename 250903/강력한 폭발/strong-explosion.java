@@ -90,8 +90,8 @@ public class Main {
             copy[nx][ny] = -1;
         }
         int cnt = 0;
-        for(int i = 0 ; i < 4; i ++){
-            for(int j = 0; j < 4; j ++){
+        for(int i = 0 ; i < n; i ++){
+            for(int j = 0; j < n; j ++){
                 if (copy[i][j] == -1) cnt ++;
             }
         }
